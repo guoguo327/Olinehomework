@@ -19,7 +19,6 @@ import exam.dto.StudentReport;
 
 /**
  * 生成excel表格
- * @author skywalker
  *
  */
 public abstract class ExcelUtil {

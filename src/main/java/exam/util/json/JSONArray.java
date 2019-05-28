@@ -4,7 +4,6 @@ import exam.util.DataUtil;
 
 /**
  * JSON数组生成
- * @author skywalker
  *
  */
 public class JSONArray extends JSON {

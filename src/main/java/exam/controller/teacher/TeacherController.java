@@ -21,7 +21,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 教师部分
- * @author skywalker
  *
  */
 @Controller

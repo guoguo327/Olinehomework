@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 /**
  * 管理员
- * @author skywalker
  *
  */
 public class Manager implements Serializable {

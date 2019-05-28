@@ -4,7 +4,6 @@ import exam.util.DataUtil;
 
 /**
  * 生成json数据工具
- * @author skywalker
  *
  */
 public class JSONObject extends JSON {

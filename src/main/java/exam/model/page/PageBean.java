@@ -4,7 +4,6 @@ import java.util.List;
 
 /**
  * 封装分页相关的数据
- * @author skywalker
  */
 public class PageBean<T> {
 

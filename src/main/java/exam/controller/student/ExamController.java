@@ -25,7 +25,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 学生模块下试卷操作
- * @author skywalker
  *
  */
 @Controller("exam.controller.student.ExamController")

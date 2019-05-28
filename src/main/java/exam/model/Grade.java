@@ -8,7 +8,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 年级
- * @author skywalker
  *
  */
 public class Grade implements Serializable, JSONAble {

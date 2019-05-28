@@ -8,7 +8,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 专业
- * @author skywalker
  *
  */
 public class Major implements Serializable, JSONAble {

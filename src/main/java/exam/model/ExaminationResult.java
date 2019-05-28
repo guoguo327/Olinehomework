@@ -9,7 +9,6 @@ import exam.dto.MarkedQuestion;
 
 /**
  * 一次考试批阅的结果
- * @author skywalker
  *
  */
 public class ExaminationResult {

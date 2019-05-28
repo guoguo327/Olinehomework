@@ -20,7 +20,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 获取班级信息
- * @author skywalker
  *
  */
 @Controller

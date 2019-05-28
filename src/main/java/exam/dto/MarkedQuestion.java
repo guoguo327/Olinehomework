@@ -2,7 +2,6 @@ package exam.dto;
 
 /**
  * 封装批阅完成的题目
- * @author skywalker
  *
  */
 public class MarkedQuestion {

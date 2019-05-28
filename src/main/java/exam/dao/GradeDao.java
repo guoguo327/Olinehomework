@@ -5,7 +5,6 @@ import exam.model.Grade;
 
 /**
  * 专业
- * @author skywalker
  *
  */
 public interface GradeDao extends BaseDao<Grade> {

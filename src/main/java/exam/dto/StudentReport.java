@@ -2,7 +2,6 @@ package exam.dto;
 
 /**
  * 封装生成成绩报告时一个学生的考试信息
- * @author skywalker
  *
  */
 public class StudentReport {

@@ -10,7 +10,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 问题
- * @author skywalker
  *
  */
 public class Question implements Serializable, JSONAble {

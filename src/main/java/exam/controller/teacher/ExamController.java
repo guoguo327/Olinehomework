@@ -35,7 +35,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 教师角色-试卷相关控制
- * @author skywalker
  *
  */
 @Controller("exam.controller.teacher.ExamController")

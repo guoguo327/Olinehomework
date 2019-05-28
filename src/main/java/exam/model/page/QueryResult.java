@@ -4,7 +4,6 @@ import java.util.List;
 
 /**
  * 分页查询结果
- * @author skywalker
  *
  */
 public class QueryResult<T> {

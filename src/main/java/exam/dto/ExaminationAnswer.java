@@ -6,7 +6,6 @@ import java.util.Map;
 
 /**
  * 封装从客户端传来的考试答案
- * @author skywalker
  *
  */
 public class ExaminationAnswer {

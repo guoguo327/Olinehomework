@@ -25,7 +25,6 @@ import exam.util.json.JSONObject;
 
 /***
  * 教师部分的题目操作
- * @author skywalker
  *
  */
 @Controller("exam.controller.teacher.QuestionController")

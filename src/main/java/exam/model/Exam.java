@@ -9,8 +9,7 @@ import java.util.List;
 import exam.model.role.Teacher;
 
 /**
- * 一套试题
- * @author skywalker
+ * 一套作业
  *
  */
 public class Exam implements Serializable {

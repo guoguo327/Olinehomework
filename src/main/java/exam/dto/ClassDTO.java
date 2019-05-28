@@ -6,7 +6,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 封装班级、年级、专业
- * @author skywalker
  *
  */
 public class ClassDTO implements JSONAble {

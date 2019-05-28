@@ -9,7 +9,6 @@ import exam.session.SessionContainer;
 
 /**
  * 管理员退出
- * @author skywalker
  *
  */
 @Controller

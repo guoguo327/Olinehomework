@@ -11,8 +11,6 @@ import exam.session.SessionContainer;
 
 /**
  * 教师退出
- * 
- * @author skywalker
  *
  */
 @Controller("exam.controller.teacher")

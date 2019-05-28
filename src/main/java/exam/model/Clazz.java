@@ -8,7 +8,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 班级
- * @author skywalker
  *
  */
 public class Clazz implements Serializable, JSONAble {

@@ -16,7 +16,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 管理员主页
- * @author skywalker
  *
  */
 @Controller

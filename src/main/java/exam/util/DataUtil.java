@@ -31,7 +31,6 @@ import exam.util.json.JSON;
 
 /**
  * 数据工具
- * @author skywalker
  *
  */
 public abstract class DataUtil {

@@ -19,7 +19,6 @@ import exam.dto.StatisticsData;
 
 /**
  * 生成统计图例
- * @author skywalker
  *
  */
 public abstract class JFreechartUtil {

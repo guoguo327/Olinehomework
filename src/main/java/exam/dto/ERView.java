@@ -10,7 +10,6 @@ import exam.model.Question;
 /**
  * ERView -> ExaminationResultView
  * 封装浏览一次考试结果所需要的全部信息
- * @author skywalker
  *
  */
 public class ERView {

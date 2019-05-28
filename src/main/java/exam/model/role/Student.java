@@ -6,7 +6,6 @@ import exam.model.Clazz;
 
 /**
  * 学生
- * @author skywalker
  *
  */
 public class Student implements Serializable {

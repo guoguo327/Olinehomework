@@ -11,7 +11,6 @@ import exam.session.SessionContainer;
 
 /**
  * 学生退出
- * @author skywalker
  *
  */
 @Controller("exam.controller.student.LogoutController")

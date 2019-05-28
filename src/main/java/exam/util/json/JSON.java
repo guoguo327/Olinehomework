@@ -2,7 +2,6 @@ package exam.util.json;
 
 /**
  * json抽象类
- * @author skywalker
  *
  */
 public abstract class JSON {

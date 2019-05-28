@@ -22,7 +22,6 @@ import exam.util.DataUtil;
 /**
  * 注入JdbcTemplate对象
  * 提供方法的空实现
- * @author skywalker
  *
  */
 public abstract class BaseDaoImpl<T> implements BaseDao<T> {

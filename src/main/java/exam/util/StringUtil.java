@@ -5,7 +5,6 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * 字符串工具
- * @author skywalker
  *
  */
 public abstract class StringUtil {

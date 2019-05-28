@@ -6,7 +6,6 @@ import java.util.List;
 
 /**
  * 封装统计考试成绩数据
- * @author skywalker
  *
  */
 public class StatisticsData {

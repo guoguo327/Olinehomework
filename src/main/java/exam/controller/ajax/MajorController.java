@@ -17,7 +17,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 获取专业信息
- * @author skywalker
  *
  */
 @Controller

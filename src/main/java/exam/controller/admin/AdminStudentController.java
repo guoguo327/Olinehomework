@@ -20,7 +20,6 @@ import exam.util.json.JSONObject;
 
 /**
  * 后台学生管理
- * @author skywalker
  *
  */
 @Controller

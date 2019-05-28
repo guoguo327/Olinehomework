@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**教师角色下的班级操作
- * Created by skywalker on 2015/9/18.
  */
 @Controller("exam.controller.teacher.ClazzController")
 @RequestMapping("/teacher/clazz")

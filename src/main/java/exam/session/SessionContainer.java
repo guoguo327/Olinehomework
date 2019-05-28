@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 监听session的创建、销毁以及设置、移除属性，防止重复登录
- * @author skywalker
  *
  */
 public final class SessionContainer {
