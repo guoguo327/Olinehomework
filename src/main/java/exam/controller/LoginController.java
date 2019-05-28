@@ -55,7 +55,12 @@ public class LoginController {
 			return "error";
 		}
 		if (role == 3) {
-			Manager manager = managerService.login(username, StringUtil.md5(password));
+			Manager manager =null;
+			try {
+				manager = managerService.login(username, StringUtil.md5(password));
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
 			if (manager == null) {
 				model.addAttribute("error", "用户名或密码错误");
 				return "login";
