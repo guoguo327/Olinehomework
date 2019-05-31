@@ -41,8 +41,8 @@ function _checkVerify(element, error, message) {
     var hasSuccess = false;
     $.ajax({
         url: "login/verify",
-        data: "verify=" + value,
-        async: false,
+        data: "verify=" + value,     //json形式
+        async: false, 				 //这个是同步，需要等待，如果异步可以执行下面部分
         dataType: "json",
         success: function(json) {
             if(json.result == 0) {

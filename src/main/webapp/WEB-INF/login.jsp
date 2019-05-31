@@ -45,7 +45,11 @@
 					<tr>
 						<td>验证码:</td>
 						<td>
-							<input type="text" name="verify" class="verify_input"><img src="image.jsp" onclick="image(this);" class="verify_image">
+							<input type="text" name="verify" class="verify_input"><img id="img" src="image.jsp" onclick="image(this);" class="verify_image">
+						</td>
+						
+						<td>
+						<a  href="#" onclick="image(document.getElementById(img));return false;">刷新</a> 
 						</td>
 					</tr>
 					<tr>
