@@ -35,12 +35,13 @@ public class AdminStudentController {
 
 	@RequestMapping("/list")
 	public String list(String pn, String search, Model model) {
+		
 		int pageCode = DataUtil.getPageCode(pn);
 		String where = null;
 		if(DataUtil.isValid(search)) {
 			where = " where s.name like '%" + search + "%'";
 		}
-		PageBean<Student> pageBean = studentService.pageSearch(pageCode, pageSize, pageNumber, where, null, null);
+		PageBean<Student> pageBean = studentService.pageSearch(pageCode, pageSize, pageNumber, where, null," s_id");
 		model.addAttribute("pageBean", pageBean);
 		model.addAttribute("search", search);
 		return "admin/student_list";
@@ -57,7 +58,7 @@ public class AdminStudentController {
 	public void add(String id, String clazz, String name, HttpServletResponse response) {
 		JSON json = new JSONObject();
 		name = StringUtil.htmlEncode(name);
-		if(!DataUtil.isNumber(id, clazz)) {
+		if(!DataUtil.isNumber(clazz)) {
 			json.addElement("result", "0").addElement("message", "数据格式非法");
 		}else if(!DataUtil.isValid(name)) {
 			json.addElement("result", "0").addElement("message", "请输入学生姓名");
@@ -71,6 +72,7 @@ public class AdminStudentController {
 	
 	/**
 	 * 学生修改
+	 * 
 	 * @param id 学生id
 	 * @param name 姓名 
 	 * @param clazz 班级id
@@ -111,7 +113,7 @@ public class AdminStudentController {
 	@ResponseBody
 	public void check(String id, HttpServletResponse response) {
 		JSONObject json = new JSONObject();
-		if(!DataUtil.isNumber(id)) {
+		if(!DataUtil.isValid(id)) {
 			json.addElement("result", "0").addElement("message", "格式非法");
 		}else if(studentService.isExisted(id)) {
 			json.addElement("result", "1").addElement("exist", "1");

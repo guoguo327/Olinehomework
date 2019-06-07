@@ -45,12 +45,12 @@ function _checkStudent(form, error, isAdd) {
 			return false;
 		}
 		//检查是否是数字
-		var pattern = new RegExp("^[1-9][0-9]*$");
-		if(!id_value.match(pattern)) {
-			error.innerHTML = "格式有误，示例2012";
-			id.focus();
-			return false;
-		}
+//		var pattern = new RegExp("^[A-Za-z0-9]+$");
+//		if(!id_value.match(pattern)) {
+//			error.innerHTML = "格式有误";
+//			id.focus();
+//			return false;
+//		}
 	}
 	//检测是否选择了年级
 	var gradeSelectValue = isAdd ? $("#grade_select_add").val() : $("#grade_select_edit").val();
@@ -119,6 +119,7 @@ function addStudent(form) {
                     toggleStudentAdd(false);
                     _resetStudent(form.student, error);
                     Tips.showSuccess(json.message);
+                    window.location.reload();
                 }
             }
         });

@@ -1,5 +1,7 @@
 package exam.controller.ajax;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -43,6 +45,12 @@ public class MajorController {
 		}
 		if (majors != null) {
 			json.addElement("result", "1");
+			Comparator<Major> comparator = new Comparator<Major>() {
+	            public int compare(Major s1, Major s2) {	               
+	                    return s1.getName().compareTo( s2.getName());	               
+	            }
+	        };
+	        Collections.sort(majors,comparator);
 			JSONArray array = new JSONArray();
 			for (Major major : majors) {
 				array.addObject(major.getJSON());

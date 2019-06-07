@@ -1,6 +1,8 @@
 package exam.controller.admin;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -61,10 +63,22 @@ public class AdminClassController {
 			where += " and mid = ? ";
 			params.add(Integer.parseInt(major));
 		}
-		PageBean<Clazz> pageBean = clazzService.pageSearch(pageCode, pageSize, pageNumber, where, params, null);
+		PageBean<Clazz> pageBean = clazzService.pageSearch(pageCode, pageSize, pageNumber, where, params, " g_grade,m_name,c_cno");
 		//加载年级和专业列表
 		List<Grade> grades = gradeService.findAll();
+		Comparator<Grade> comparator = new Comparator<Grade>() {
+            public int compare(Grade s1, Grade s2) {	               
+                    return s1.getGrade()-s2.getGrade();	               
+            }
+        };
+        Collections.sort(grades,comparator);
 		List<Major> majors = majorService.findAll();
+		Comparator<Major> comparator2 = new Comparator<Major>() {
+            public int compare(Major s1, Major s2) {	               
+                    return s1.getName().compareTo( s2.getName());	               
+            }
+        };
+        Collections.sort(majors,comparator2);
 		model.addAttribute("pageBean", pageBean);
 		model.addAttribute("grades", grades);
 		model.addAttribute("majors", majors);

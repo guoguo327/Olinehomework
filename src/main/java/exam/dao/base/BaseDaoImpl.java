@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -88,7 +87,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 	
 	public PageBean<T> pageSearch(int pageCode, int pageSize, int pageNumber,
-		String where, List<Object> params, HashMap<String, String> orderbys) {
+		String where, List<Object> params, String orderbys) {
 		
 		String whereSql = (DataUtil.isValid(where)) ? where : "";
 		StringBuilder sqlBuilder = new StringBuilder(sql).append(" ").append(whereSql);
@@ -97,10 +96,9 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		if(DataUtil.isValid(orderbys)) {
 			//设置排序
 			sqlBuilder.append(" order by ");
-			for(String key : orderbys.keySet()) {
-				sqlBuilder.append(key).append(" ").append(orderbys.get(key)).append(",");
-			}
-			sqlBuilder.deleteCharAt(sql.length() - 1);
+			sqlBuilder.append(orderbys);
+			
+			
 		}
 		//设置分页
 		int begin = (pageCode - 1) * pageSize;

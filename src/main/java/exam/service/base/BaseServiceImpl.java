@@ -1,6 +1,5 @@
 package exam.service.base;
 
-import java.util.HashMap;
 import java.util.List;
 
 import exam.dao.base.BaseDao;
@@ -32,7 +31,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 	}
 	
 	public PageBean<T> pageSearch(int pageCode, int pageSize, int pageNumber,
-			String where, List<Object> params, HashMap<String, String> orderbys) {
+			String where, List<Object> params, String orderbys) {
 		return baseDao.pageSearch(pageCode, pageSize, pageNumber, where, params, orderbys);
 	}
 	

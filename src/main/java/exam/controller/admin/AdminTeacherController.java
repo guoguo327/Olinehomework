@@ -56,7 +56,7 @@ public class AdminTeacherController {
 		}else if(DataUtil.isValid(name)) {
 			where += "and name like '%" + name + "%'";
 		}
-		PageBean<Teacher> pageBean = teacherService.pageSearch(pageCode, pageSize, pageNumber, where, params, null);
+		PageBean<Teacher> pageBean = teacherService.pageSearch(pageCode, pageSize, pageNumber, where, params, " id");
 		model.addAttribute("pageBean", pageBean);
 		model.addAttribute("name", name);
 		return "admin/teacher_list";

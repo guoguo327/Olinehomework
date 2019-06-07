@@ -45,6 +45,7 @@ public class ClazzController {
 			clazz.setMajor(new Major(Integer.parseInt(major)));
 			clazz.setGrade(new Grade(Integer.parseInt(grade)));
 			List<Clazz> clazzs = clazzService.findClazzOnly(clazz);
+			        
 			json.addElement("result", "1");
 			JSONArray array = new JSONArray();
 			for(Clazz c : clazzs) {

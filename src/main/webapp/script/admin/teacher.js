@@ -152,6 +152,7 @@ function addTeacher(form) {
                     toggleTeacherAdd(false);
                     _resetTeacher(form.name, error);
                     Tips.showSuccess(json.message);
+                    window.location.reload();
                 }
             }
         });
@@ -199,6 +200,7 @@ function editTeacher(form) {
 					toggleTeacherEdit(false);
 					_resetTeacher(form.name, error);
 					Tips.showSuccess(json.message);
+					window.location.reload();
 				}
 			}
 		});

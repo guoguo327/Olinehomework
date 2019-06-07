@@ -64,6 +64,7 @@ function addMajor(form) {
                     toggleMajorAdd(false);
                     _resetMajor(major, error);
                     Tips.showSuccess(json.message);
+                    window.location.reload();
                 }
             }
         });
@@ -99,6 +100,7 @@ function editMajor(form) {
                     toggleMajorEdit(false);
                     _resetMajor(major, error);
                     Tips.showSuccess(json.message);
+                    window.location.reload();
                 }
             }
         });

@@ -1,5 +1,7 @@
 package exam.controller.ajax;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -35,6 +37,12 @@ public class GradeController {
 		JSONObject json = new JSONObject();
 		JSONArray array = new JSONArray();
 		List<Grade> grades = gradeService.findAll();
+		Comparator<Grade> comparator = new Comparator<Grade>() {
+            public int compare(Grade s1, Grade s2) {	               
+                    return s1.getGrade()-s2.getGrade();	               
+            }
+        };
+        Collections.sort(grades,comparator);
 		json.addElement("result", "1");
 		for(Grade grade : grades) {
 			array.addObject(grade.getJSON());

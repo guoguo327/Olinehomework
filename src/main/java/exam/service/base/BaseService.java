@@ -1,6 +1,6 @@
 package exam.service.base;
 
-import java.util.HashMap;
+
 import java.util.List;
 
 import exam.model.page.PageBean;
@@ -26,6 +26,6 @@ public interface BaseService<T> {
 	 * @return {@link PageBean}
 	 */
 	public PageBean<T> pageSearch(int pageCode, int pageSize, int pageNumber, String where,
-			List<Object> params, HashMap<String, String> orderbys);
+			List<Object> params, String orderbys);
 	
 }

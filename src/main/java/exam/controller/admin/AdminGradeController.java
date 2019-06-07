@@ -43,7 +43,7 @@ public class AdminGradeController {
 		if(DataUtil.isNumber(search)) {
 			where = " where grade = " + search;
 		}
-		PageBean<Grade> pageBean = gradeService.pageSearch(pageCode, pageSize, pageNumber, where, null, null);
+		PageBean<Grade> pageBean = gradeService.pageSearch(pageCode, pageSize, pageNumber, where, null, " grade");
 		model.addAttribute("pageBean", pageBean);
 		model.addAttribute("search", search);
 		return "admin/grade_list";

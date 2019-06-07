@@ -45,7 +45,7 @@ public class AdminMajorController {
 		if(DataUtil.isValid(search)) {
 			where = " where name like '%" + search + "%'";
 		}
-		PageBean<Major> pageBean = majorService.pageSearch(pageCode, pageSize, pageNumber, where, null, null);
+		PageBean<Major> pageBean = majorService.pageSearch(pageCode, pageSize, pageNumber, where, null, " convert(name USING gbk) ");
 		model.addAttribute("pageBean", pageBean);
 		model.addAttribute("search", search);
 		return "admin/major_list";

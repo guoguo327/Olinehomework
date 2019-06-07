@@ -78,6 +78,6 @@ public interface BaseDao<T> {
 	 * @return {@link PageBean}
 	 */
 	PageBean<T> pageSearch(int pageCode, int pageSize, int pageNumber, String where,
-			List<Object> params, HashMap<String, String> orderbys);
+			List<Object> params, String orderbys);
 
 }
