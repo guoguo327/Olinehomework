@@ -13,7 +13,6 @@ import exam.dao.base.BaseDao;
 import exam.model.page.PageBean;
 import exam.model.role.Student;
 import exam.service.StudentService;
-import exam.service.TeacherService;
 import exam.service.base.BaseServiceImpl;
 import exam.util.DataUtil;
 import exam.util.StringUtil;
@@ -71,7 +70,7 @@ public class StudentServiceImpl extends BaseServiceImpl<Student> implements Stud
 	
 	@Override
 	public Student login(String username, String password) {
-		String sql = studentDao.getSql() + " where s.name = '" + username + "' and s.password = '" + StringUtil.md5(password) + "'";
+		String sql = studentDao.getSql() + " where s.id = '" + username + "' and s.password = '" + StringUtil.md5(password) + "'";
 		List<Student> result = studentDao.queryBySQL(sql);
 		return DataUtil.isValid(result) ? result.get(0) : null;
 	}

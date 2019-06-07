@@ -67,7 +67,7 @@ public class TeacherServiceImpl extends BaseServiceImpl<Teacher> implements Teac
 	
 	@Override
 	public Teacher login(String name, String password) {
-		String sql = "select * from teacher where name = ? and password = ?";
+		String sql = "select * from teacher where id = ? and password = ?";
 		List<Teacher> result = teacherDao.queryBySQL(sql, name, StringUtil.md5(password));
 		return DataUtil.isValid(result) ? result.get(0) : null;
 	}
