@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import exam.dao.MajorDao;
 import exam.dao.base.BaseDaoImpl;
 import exam.model.Major;
+import exam.model.page.PageBean;
 import exam.util.DataUtil;
 
 @Repository("majorDao")
@@ -54,6 +55,14 @@ public class MajorDaoImpl extends BaseDaoImpl<Major> implements MajorDao {
 
 	public String getCountSql() {
 		return "select count(id) from major";
+	}
+
+
+	@Override
+	public PageBean<Major> pageSearch2(int pageCode, int pageSize, int pageNumber, String where, List<Object> params,
+			String orderbys) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

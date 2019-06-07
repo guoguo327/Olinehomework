@@ -12,6 +12,7 @@ import exam.dao.base.BaseDaoImpl;
 import exam.model.Clazz;
 import exam.model.Grade;
 import exam.model.Major;
+import exam.model.page.PageBean;
 import exam.util.DataUtil;
 
 @Repository("clazzDao")
@@ -95,6 +96,13 @@ public class ClazzDaoImpl extends BaseDaoImpl<Clazz> implements ClazzDao {
 
 	public String getCountSql() {
 		return "select count(id) from class";
+	}
+
+	@Override
+	public PageBean<Clazz> pageSearch2(int pageCode, int pageSize, int pageNumber, String where, List<Object> params,
+			String orderbys) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

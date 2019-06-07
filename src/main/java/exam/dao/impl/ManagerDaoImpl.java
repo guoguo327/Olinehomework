@@ -2,12 +2,14 @@ package exam.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import exam.dao.base.BaseDaoImpl;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import exam.dao.ManagerDao;
+import exam.model.page.PageBean;
 import exam.model.role.Manager;
 
 @Repository("managerDao")
@@ -39,4 +41,11 @@ public class ManagerDaoImpl extends BaseDaoImpl<Manager> implements ManagerDao {
     public RowMapper<Manager> getRowMapper() {
         return rowMapper;
     }
+
+	@Override
+	public PageBean<Manager> pageSearch2(int pageCode, int pageSize, int pageNumber, String where, List<Object> params,
+			String orderbys) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

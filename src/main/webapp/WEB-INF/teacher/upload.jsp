@@ -24,17 +24,18 @@
 <body>
 	<!--头部-->
 	<jsp:include page="share/head.jsp"></jsp:include>
-
+	
 	<!--中间主体部分-->
 	<div class="main">
 		<div class="welcome"></div>
 	</div>
-	
+	<div align="center">
 		<form name="fileupload" enctype="multipart/form-data" action="teacher/upload" method="post">
-			<p style="font-size:16px;">请选择正确的excel文件上传</p>
+			<p>请选择正确的excel文件上传</p>
 			<input type="file" name="excel">
 			<input type="submit" value="上传">			
  			<p style="color:red;">支持的excel格式为：xls、xlsx！</p>
 		</form>
+	</div>
 </body>
 </html>

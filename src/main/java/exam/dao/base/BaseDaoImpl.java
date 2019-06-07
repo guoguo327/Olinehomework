@@ -103,16 +103,20 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 		//设置分页
 		int begin = (pageCode - 1) * pageSize;
 		sqlBuilder.append(" limit ").append(begin).append(", ").append(pageSize);
+		System.out.println(sqlBuilder);
 		//设置参数
 		if(DataUtil.isValid(params)) {
 			Object[] paramsArray = params.toArray();
 			pageBean = new PageBean<T>(jdbcTemplate.query(sqlBuilder.toString(), paramsArray, rowMapper), pageSize, pageCode,
 					((BigInteger) jdbcTemplate.queryForObject(countSqlBuilder.toString(), paramsArray, BigInteger.class)).intValue(), pageNumber);
 		}else {
+			System.out.println("基础");
 			pageBean = new PageBean<T>(jdbcTemplate.query(sqlBuilder.toString(), rowMapper), pageSize, pageCode,
 					((BigInteger) jdbcTemplate.queryForObject(countSqlBuilder.toString(), BigInteger.class)).intValue(), pageNumber);
 		}
 		return pageBean;
 	}
+	
+	
 
 }

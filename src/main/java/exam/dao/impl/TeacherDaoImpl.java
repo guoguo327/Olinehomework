@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import exam.dao.TeacherDao;
 import exam.dao.base.BaseDaoImpl;
+import exam.model.page.PageBean;
 import exam.model.role.Teacher;
 import exam.util.DataUtil;
 
@@ -63,6 +64,13 @@ public class TeacherDaoImpl extends BaseDaoImpl<Teacher> implements TeacherDao {
 
 	public String getCountSql() {
 		return "select count(id) from teacher";
+	}
+
+	@Override
+	public PageBean<Teacher> pageSearch2(int pageCode, int pageSize, int pageNumber, String where, List<Object> params,
+			String orderbys) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

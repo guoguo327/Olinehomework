@@ -1,6 +1,6 @@
 package exam.dao.base;
 
-import java.util.HashMap;
+
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
@@ -78,6 +78,8 @@ public interface BaseDao<T> {
 	 * @return {@link PageBean}
 	 */
 	PageBean<T> pageSearch(int pageCode, int pageSize, int pageNumber, String where,
+			List<Object> params, String orderbys);
+	PageBean<T> pageSearch2(int pageCode, int pageSize, int pageNumber, String where,
 			List<Object> params, String orderbys);
 
 }

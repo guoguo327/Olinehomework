@@ -1,5 +1,8 @@
 package exam.service;
 
+import java.util.List;
+
+import exam.model.page.PageBean;
 import exam.model.role.Student;
 import exam.service.base.BaseService;
 
@@ -41,5 +44,6 @@ public interface StudentService extends BaseService<Student> {
 	 * @param cid
 	 */
 	public void saveStudent(String id, String name, String password, int cid);
-	
+	public  PageBean<Student> pageSearch2(int pageCode, int pageSize, int pageNumber,
+			String where, List<Object> params, String orderbys);
 }

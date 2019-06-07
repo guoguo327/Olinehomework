@@ -5,12 +5,15 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+
 import org.springframework.stereotype.Service;
 
 import exam.dao.StudentDao;
 import exam.dao.base.BaseDao;
+import exam.model.page.PageBean;
 import exam.model.role.Student;
 import exam.service.StudentService;
+import exam.service.TeacherService;
 import exam.service.base.BaseServiceImpl;
 import exam.util.DataUtil;
 import exam.util.StringUtil;
@@ -19,7 +22,8 @@ import exam.util.StringUtil;
 public class StudentServiceImpl extends BaseServiceImpl<Student> implements StudentService {
 	
 	private StudentDao studentDao;
-
+	@Resource
+	private StudentDao studentDAO;
 	@Resource(name = "studentDao")
 	@Override
 	protected void setBaseDao(BaseDao<Student> baseDao) {
@@ -70,6 +74,11 @@ public class StudentServiceImpl extends BaseServiceImpl<Student> implements Stud
 		String sql = studentDao.getSql() + " where s.name = '" + username + "' and s.password = '" + StringUtil.md5(password) + "'";
 		List<Student> result = studentDao.queryBySQL(sql);
 		return DataUtil.isValid(result) ? result.get(0) : null;
+	}
+	
+	public PageBean<Student> pageSearch2(int pageCode, int pageSize, int pageNumber,
+			String where, List<Object> params, String orderbys) {
+		return studentDAO.pageSearch2(pageCode, pageSize, pageNumber, where, params, orderbys);
 	}
 	
 }

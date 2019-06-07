@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import exam.model.ExamStatus;
+import exam.model.page.PageBean;
 
 import org.springframework.jdbc.core.CallableStatementCallback;
 import org.springframework.jdbc.core.CallableStatementCreator;
@@ -55,6 +56,13 @@ public class ExamDaoImpl extends BaseDaoImpl<Exam> implements ExamDao {
 
 	public RowMapper<Exam> getRowMapper() {
 		return rowMapper;
+	}
+
+	@Override
+	public PageBean<Exam> pageSearch2(int pageCode, int pageSize, int pageNumber, String where, List<Object> params,
+			String orderbys) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import exam.dao.ExaminationResultDao;
 import exam.dao.base.BaseDaoImpl;
 import exam.model.ExaminationResult;
+import exam.model.page.PageBean;
 
 @Repository("examinationResultDao")
 public class ExaminationResultDaoImpl extends BaseDaoImpl<ExaminationResult> implements ExaminationResultDao {
@@ -58,6 +59,13 @@ public class ExaminationResultDaoImpl extends BaseDaoImpl<ExaminationResult> imp
 	@Override
 	public RowMapper<ExaminationResult> getRowMapper() {
 		return rowMapper;
+	}
+
+	@Override
+	public PageBean<ExaminationResult> pageSearch2(int pageCode, int pageSize, int pageNumber, String where,
+			List<Object> params, String orderbys) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

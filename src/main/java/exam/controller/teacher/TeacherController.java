@@ -7,14 +7,18 @@ import java.util.UUID;
 import exam.dto.ClassDTO;
 import exam.model.Question;
 import exam.model.QuestionType;
+import exam.model.page.PageBean;
+import exam.model.role.Student;
 import exam.model.role.Teacher;
 import exam.service.QuestionService;
+import exam.service.StudentService;
 import exam.service.TeacherService;
 import exam.service.impl.FileUploadServiceImpl;
 import exam.util.DataUtil;
 import exam.util.json.JSONArray;
 import exam.util.json.JSONObject;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +43,13 @@ public class TeacherController {
     private TeacherService teacherService;
     @Resource
    	private QuestionService questionService;
+    @Resource
+   	private StudentService studentService;
     
+    @Value("#{properties['student.pageSize']}")
+    private int pageSize;
+    @Value("#{properties['student.pageNumber']}")
+    private int pageNumber;
    /**
     * 上传文件页面
     */
@@ -192,6 +202,23 @@ public class TeacherController {
         return true;
     }
     
-    
+    @RequestMapping("/stulist")
+    public String stulist(String pn, String search, Model model,HttpSession session) {    	
+    	Teacher teacher = (Teacher) session.getAttribute("teacher");
+    	int pageCode = DataUtil.getPageCode(pn);
+    	String where = " where t.id = \'"+teacher.getId()+"\'";
+    	
+    	if(DataUtil.isValid(search)) {
+			where =where + "  s.name like '%" + search + "%'";
+		}
+    	
+		PageBean<Student> pageBean = studentService.pageSearch2(pageCode, pageSize, pageNumber, where, null, " s.id");
+
+		
+		model.addAttribute("pageBean", pageBean);
+		model.addAttribute("search", search);
+		return "teacher/student_list";
+    	
+    }
 	
 }

@@ -2,6 +2,7 @@ package exam.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -10,6 +11,7 @@ import exam.dao.QuestionDao;
 import exam.dao.base.BaseDaoImpl;
 import exam.model.Question;
 import exam.model.QuestionType;
+import exam.model.page.PageBean;
 
 @Repository("questionDao")
 public class QuestionDaoImpl extends BaseDaoImpl<Question> implements QuestionDao {
@@ -47,6 +49,13 @@ public class QuestionDaoImpl extends BaseDaoImpl<Question> implements QuestionDa
 	@Override
 	public RowMapper<Question> getRowMapper() {
 		return rowMapper;
+	}
+
+	@Override
+	public PageBean<Question> pageSearch2(int pageCode, int pageSize, int pageNumber, String where, List<Object> params,
+			String orderbys) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

@@ -1,5 +1,6 @@
 package exam.dao.impl;
 
+import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -12,6 +13,7 @@ import exam.dao.base.BaseDaoImpl;
 import exam.model.Clazz;
 import exam.model.Grade;
 import exam.model.Major;
+import exam.model.page.PageBean;
 import exam.model.role.Student;
 import exam.util.DataUtil;
 
@@ -22,7 +24,11 @@ public class StudentDaoImpl extends BaseDaoImpl<Student> implements StudentDao {
 	private static String sql = "select s.id as s_id, s.name as s_name, s.password as s_password, s.modified as s_modified,"
 			+ "c.id as c_id, c.cno as c_cno, g.id as g_id, g.grade as g_grade, m.id as m_id, m.name as m_name from student s join class c on c.id = s.cid"
 			+ " join grade g on g.id = c.gid join major m on m.id = c.mid";
-	
+	private String sql2 = "select s.id as s_id, s.name as s_name, s.password as s_password, s.modified as s_modified,"
+			+ "c.id as c_id, c.cno as c_cno, g.id as g_id, g.grade as g_grade, m.id as m_id, m.name as m_name from student s join class c on c.id = s.cid"
+			+ " join grade g on g.id = c.gid join major m on m.id = c.mid"
+			+" join teacher_class tc on tc.cid=c.id"
+			+" join teacher t on t.id=tc.tid";
 	static {
 		rowMapper = new RowMapper<Student>() {
 			public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -75,10 +81,46 @@ public class StudentDaoImpl extends BaseDaoImpl<Student> implements StudentDao {
 	}
 
 	/**
-	 * 这个地方必须手动制定一个别名s，否则controller中where条件没法用，这是个bug?
+	 * 这个地方必须手动制定一个别名s，否则controller中where条件没法用
 	 */
 	public String getCountSql() {
 		return "select count(id) from student s";
 	}
+	
+	public PageBean<Student> pageSearch2(int pageCode, int pageSize, int pageNumber,
+			String where, List<Object> params, String orderbys) {
+			String str ="select count(s.id) from student s join class c on c.id = s.cid"
+					+ " join grade g on g.id = c.gid join major m on m.id = c.mid"
+					+" join teacher_class tc on tc.cid=c.id"
+					+" join teacher t on t.id=tc.tid";
+					
+			String whereSql = (DataUtil.isValid(where)) ? where : "";
+			StringBuilder sqlBuilder = new StringBuilder(sql2).append(" ").append(whereSql);
+			StringBuilder countSqlBuilder = new StringBuilder(str).append(" ").append(whereSql);
+			PageBean<Student> pageBean = null;
+			
+			if(DataUtil.isValid(orderbys)) {
+				//设置排序
+				sqlBuilder.append(" order by ");
+				sqlBuilder.append(orderbys);				
+			}
+			
+			//设置分页
+			int begin = (pageCode - 1) * pageSize;
+			sqlBuilder.append(" limit ").append(begin).append(", ").append(pageSize);
+			//设置参数
+			if(DataUtil.isValid(params)) {
+				Object[] paramsArray = params.toArray();
+				pageBean = new PageBean<Student>(jdbcTemplate.query(sqlBuilder.toString(), paramsArray, rowMapper), pageSize, pageCode,
+						((BigInteger) jdbcTemplate.queryForObject(countSqlBuilder.toString(), paramsArray, BigInteger.class)).intValue(), pageNumber);
+			}else {
+			
+				pageBean = new PageBean<Student>(jdbcTemplate.query(sqlBuilder.toString(), rowMapper), pageSize, pageCode,
+						((BigInteger) jdbcTemplate.queryForObject(countSqlBuilder.toString(), BigInteger.class)).intValue(), pageNumber);
+				
+			}
+		
+			return pageBean;
+		}
 
 }

@@ -49,6 +49,7 @@
 							<li><a href="teacher/question/judges">判断题</a></li>
 						</ul></li>
 					<li><a href="teacher/up">批量上传</a></li>
+					<li><a href="teacher/stulist">学生名单</a></li>
 					<li><a href="teacher/password">修改密码</a></li>
 					<li><a href="teacher/logout">退出系统</a></li>
 				</ul>

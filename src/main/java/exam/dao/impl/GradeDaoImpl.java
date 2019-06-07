@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import exam.dao.GradeDao;
 import exam.dao.base.BaseDaoImpl;
 import exam.model.Grade;
+import exam.model.page.PageBean;
 
 @Repository("gradeDao")
 public class GradeDaoImpl extends BaseDaoImpl<Grade> implements GradeDao {
@@ -52,6 +53,13 @@ public class GradeDaoImpl extends BaseDaoImpl<Grade> implements GradeDao {
 
 	public String getCountSql() {
 		return "select count(id) from grade";
+	}
+
+	@Override
+	public PageBean<Grade> pageSearch2(int pageCode, int pageSize, int pageNumber, String where, List<Object> params,
+			String orderbys) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
