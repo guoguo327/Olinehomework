@@ -4,5 +4,5 @@
 
 # 使用的框架
 
-Spring、SpringMVC、Mybatis、jQuery
+Spring、SpringMVC、jQuery
 
